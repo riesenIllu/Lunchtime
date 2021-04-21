@@ -1,0 +1,34 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .lt-component-root{
+      .logo{
+        .logo-img{
+          display: inline;
+          //background-image: "/Assets/logo_sa.png";
+          width: 25px;
+          height: 25px;
+        }
+      }
+      .login{
+        margin-top: 50%;
+        button{
+          margin: 0.5em 0;
+        }
+        .headline{
+          display: block;
+          margin: auto;
+          width: fit-content;
+        }
+        .form-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+}
