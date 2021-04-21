@@ -1,9 +1,5 @@
 import React from "react";
-import {Container} from "@material-ui/core"
-import {Typography} from "@material-ui/core";
-import {TextField} from "@material-ui/core";
-import {Button} from "@material-ui/core";
-
+import {Container, Typography, TextField, Button} from "@material-ui/core";
 
 export class Login extends React.Component<Props, State>{
 
@@ -52,10 +48,10 @@ export class Login extends React.Component<Props, State>{
 
 }
 
-export interface Props {
+interface Props {
 
 }
 
-export interface State{
+interface State{
 
 }

@@ -6,9 +6,7 @@ import '../index.css';
 
 export function render(){
     ReactDOM.render(
-        <React.StrictMode>
-            <Root theme={getTheme()}/>
-        </React.StrictMode>,
+        <Root theme={getTheme()}/>,
         document.getElementById('root')
       );
 }

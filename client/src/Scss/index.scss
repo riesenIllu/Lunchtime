@@ -5,13 +5,36 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    .menu-drawer{
+      .drawer-content{
+        padding: 4.5em 1em;
+        .profile-link{
+          display: flex;
+          margin: 0.5em;
+        }
+      }
+    }
+
     .lt-component-root{
+      .menu{
+        .menu-bar{
+          flex-direction: row;
+          z-index: 1400;
+          .menu-button{
+            margin: 0.3em;
+          }
+          .logo{
+            padding-top: 0.5em;
+          }
+        }
+      }
       .logo{
+        display: flex;
+        margin: auto;
+        width: fit-content;
         .logo-img{
           display: inline;
-          //background-image: "/Assets/logo_sa.png";
-          width: 25px;
-          height: 25px;
+          margin: 0.5em;
         }
       }
       .login{

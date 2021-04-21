@@ -4,10 +4,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body .menu-drawer .drawer-content {
+  padding: 4.5em 1em;
+}
+
+body .menu-drawer .drawer-content .profile-link {
+  display: flex;
+  margin: 0.5em;
+}
+
+body .lt-component-root .menu .menu-bar {
+  flex-direction: row;
+  z-index: 1400;
+}
+
+body .lt-component-root .menu .menu-bar .menu-button {
+  margin: 0.3em;
+}
+
+body .lt-component-root .menu .menu-bar .logo {
+  padding-top: 0.5em;
+}
+
+body .lt-component-root .logo {
+  display: flex;
+  margin: auto;
+  width: fit-content;
+}
+
 body .lt-component-root .logo .logo-img {
   display: inline;
-  width: 25px;
-  height: 25px;
+  margin: 0.5em;
 }
 
 body .lt-component-root .login {
