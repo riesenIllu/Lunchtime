@@ -26,7 +26,7 @@ export class Menu extends React.Component<Props, State>{
 
     public render(): React.ReactNode{
         return <div className="menu">
-            <AppBar className="menu-bar" color="primary">
+            <AppBar className="menu-bar" color="secondary">
                 <IconButton className="menu-button" edge="start" color="inherit" aria-label="menu" onClick={this.toggleDrawerState.bind(this)}>
                     {this.state.open ? <CloseIcon/> : <MenuIcon/>}
                 </IconButton>

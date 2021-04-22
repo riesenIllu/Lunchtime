@@ -1,6 +1,6 @@
 
 import {render} from "./components/index";
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './vendor/reportWebVitals';
 
 
 render();

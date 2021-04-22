@@ -16,6 +16,9 @@ body {
     }
 
     .lt-component-root{
+      .content{
+        margin-top: 5em;
+      }
       .menu{
         .menu-bar{
           flex-direction: row;

@@ -1,6 +1,6 @@
 import React from "react";
 import {Typography} from "@material-ui/core";
-import logo from "../Assets/logo_sa.png"
+import logo from "../assets/logo_sa.png"
 
 export class Logo extends React.Component {
 

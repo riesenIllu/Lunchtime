@@ -13,6 +13,10 @@ body .menu-drawer .drawer-content .profile-link {
   margin: 0.5em;
 }
 
+body .lt-component-root .content {
+  margin-top: 5em;
+}
+
 body .lt-component-root .menu .menu-bar {
   flex-direction: row;
   z-index: 1400;

@@ -1,10 +1,12 @@
 import React from "react";
 import {Container, Typography, TextField, Button} from "@material-ui/core";
+import {Logo} from "./Logo";
 
 export class Login extends React.Component<Props, State>{
 
     public render(): React.ReactNode{
         return <div className="login">
+            <Logo />
             <Typography className="headline" variant="h3">Login</Typography>
             <Container className="form-container">
                 <form className="form">
