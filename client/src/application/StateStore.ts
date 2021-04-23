@@ -1,3 +1,5 @@
+import {Action, ActionCtor} from "./Action";
+
 module state {
 
     export type Callback<TStates, K extends keyof TStates> = (stateData: TStates[K]) => void;
@@ -19,44 +21,73 @@ module state {
     }
 }
 
-export class StateStore<TStates extends {}>{
+export class StateStore<TState extends {}>{
 
-    public states!: Map<keyof TStates, any>;
+    private static registeredActions: ActionCtor[];
 
-    private subscriptions!: Map<number, state.Subscription<TStates, any>>;
+    public static registerAction<TAction extends Action>(actionConstructor: ActionCtor<TAction>): void{
+        if(!this.registeredActions){
+            this.registeredActions = [];
+        }
+        this.registeredActions.push(actionConstructor);
+    }
 
-    constructor(initialState: TStates){
-       this.states = this.initStates(initialState);
+    private state: Map<keyof TState, any>;
+    private subscriptions: Map<number, state.Subscription<TState, any>>;
+    private actions!: Map<string, Action<TState>>;
+
+    constructor(initialState: TState){
+       this.state = this.initStates(initialState);
+       this.actions = this.initActions();
        this.subscriptions = new Map();
     }
 
-    private initStates(initialState: TStates): Map<keyof TStates, any>{
-        var states = new Map();
+    private initStates(initialState: TState): Map<keyof TState, any>{
+        var state = new Map();
         Object.keys(initialState).forEach(key => {
-            if(!states.has(key)){
-                states.set(key, initialState[key as keyof TStates]);
+            if(!state.has(key)){
+                state.set(key, initialState[key as keyof TState]);
             }
         })
-        return states;
+        return state;
     }
 
-    public subscribe<K extends keyof TStates>(stateKey: K, callback: state.Callback<TStates, K>): state.Subscription<TStates, K> {
-        var subscription = new state.Subscription(stateKey, callback);
-        this.subscriptions.set(subscription.index, subscription);
-        return subscription;
+    private initActions(): Map<string, Action<TState>>{
+        var actions = new Map();
+        StateStore.registeredActions.forEach((aC) => {
+            if(!actions.has(aC.name)) actions.set(aC.name, new aC());
+        });
+        return actions;
     }
 
-    public unsubscribe<K extends keyof TStates>(subscription: state.Subscription<TStates, K>): void{
-        this.subscriptions.delete(subscription.index);
-    }
-
-    public setState<K extends keyof TStates>(stateKey: K, stateData: TStates[K]): void{
-        this.states.set(stateKey, stateData);
+    private setState<K extends keyof TState>(stateKey: K, stateData: TState[K]): void{
+        this.state.set(stateKey, stateData);
         this.subscriptions.forEach(sub => {
             if(sub.stateKey === stateKey){
                 sub.callback(stateData);
             }
         })
+    }
+
+    public subscribe<K extends keyof TState>(stateKey: K, callback: state.Callback<TState, K>): state.Subscription<TState, K> {
+        var subscription = new state.Subscription(stateKey, callback);
+        this.subscriptions.set(subscription.index, subscription);
+        return subscription;
+    }
+
+    public unsubscribe<K extends keyof TState>(subscription: state.Subscription<TState, K>): void{
+        this.subscriptions.delete(subscription.index);
+    }
+
+    //TODO: Lösung für unnötigen check finden
+    public executeAction<TAction extends Action<TState>>(actionC: ActionCtor<TAction>, input: TAction["_input_type_"]): void{
+        var newState = this.actions.get(actionC.name)?.execute(input);
+        if(newState && typeof newState === "object"){
+            Object.keys(newState).forEach(key => {
+                if(newState && newState[key] != undefined) // newState check damit der TS Compiler zufrieden ist -_-
+                this.setState(key as keyof TState, newState[key]);
+            })
+        }
     }
 
 }
