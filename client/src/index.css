@@ -4,6 +4,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body a {
+  color: unset;
+  text-decoration: unset;
+}
+
 body .menu-drawer .drawer-content {
   padding: 4.5em 1em;
 }
@@ -11,6 +16,19 @@ body .menu-drawer .drawer-content {
 body .menu-drawer .drawer-content .profile-link {
   display: flex;
   margin: 0.5em;
+}
+
+body .lt-component-root .dish-selection .dish .dish-image {
+  height: 0;
+  padding-top: 45.2%;
+}
+
+body .lt-component-root .dish-selection .dish .dish-content {
+  display: flex;
+}
+
+body .lt-component-root .dish-selection .dish .dish-content .dish-name {
+  width: 75%;
 }
 
 body .lt-component-root .content {

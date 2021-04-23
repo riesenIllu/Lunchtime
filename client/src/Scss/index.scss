@@ -4,6 +4,10 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    a{
+      color: unset;
+      text-decoration: unset;
+    }
 
     .menu-drawer{
       .drawer-content{
@@ -16,6 +20,20 @@ body {
     }
 
     .lt-component-root{
+      .dish-selection{
+        .dish{
+          .dish-image{
+            height: 0;
+            padding-top: 45.2%;
+          }
+          .dish-content{
+            display: flex;
+            .dish-name{
+              width: 75%;
+            }
+          }
+        }
+      }
       .content{
         margin-top: 5em;
       }

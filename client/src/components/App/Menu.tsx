@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {Drawer, Button, AppBar, IconButton} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -6,7 +7,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import { ProfileLink } from "./Menu/ProfileLink";
 import { Navigation } from "./Menu/Navigation";
 import { ThemeSelector } from "./Menu/ThemeSelector";
-import { Logo } from "./Logo";
+import { Logo } from "../Logo";
 
 
 export class Menu extends React.Component<Props, State>{
@@ -31,14 +32,16 @@ export class Menu extends React.Component<Props, State>{
                     {this.state.open ? <CloseIcon/> : <MenuIcon/>}
                 </IconButton>
                 <Logo></Logo>
-                <IconButton className="menu-button" edge="start" color="inherit" aria-label="menu">
-                    <ShoppingCartIcon />
-                </IconButton>
+                <Link to="/checkout">
+                    <IconButton className="menu-button" edge="start" color="inherit" aria-label="menu">
+                        <ShoppingCartIcon />
+                    </IconButton>
+                </Link>
             </AppBar>
             <Drawer className="menu-drawer" anchor="left" open={this.state.open} onClose={this.toggleDrawerState.bind(this)}>
                 <div className="drawer-content">
                     <ProfileLink user={{name: "Max Mustermann"}} />
-                    <Navigation links={["Checkout", "Favorites"]} />
+                    <Navigation links={[{title: "Dishselection", href: "/dishselection"}, {title: "Edit Profile", href: "/profile"}, {title: "Checkout", href: "/checkout"}]} />
                     <ThemeSelector />
                     <Button className="logout-button">Logout</Button>
                 </div>
