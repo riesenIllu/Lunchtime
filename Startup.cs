@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MongoDB.Driver;
 
 namespace LunchTime
 {
@@ -20,13 +21,15 @@ namespace LunchTime
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddSingleton<IMongoClient, MongoClient>(s => {
+                return new MongoClient(s.GetRequiredService<IConfiguration>()["MongoUri"]);
+            });
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "client/build";
             });
         }
 
@@ -59,7 +62,7 @@ namespace LunchTime
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "client";
 
                 if (env.IsDevelopment())
                 {
