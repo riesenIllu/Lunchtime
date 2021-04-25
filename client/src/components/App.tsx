@@ -5,33 +5,40 @@ import { DishSelection } from "./App/DishSelection";
 import { Profile } from "./App/Profile";
 import { Checkout } from "./App/Checkout";
 import { DishFilter } from "./App/DishFilter";
+import { Base } from "./Base";
 
-export class App extends React.Component<Props, State>{
+//FIXME: naming
+export class App extends Base<Props, State, Style>{
+    
+    protected get style(): Style {
+        return {};
+    }
 
     public render(): React.ReactNode{
         return <div className="app">
-            <Router>
-                <Menu />
-                    <div className="content">
-                        <Switch>
-                            <Route exact path={["/", "/dishselection"]}>
-                                <DishSelection/>
-                            </Route>
-                            <Route exact path="/filter">
-                                <DishFilter/>
-                            </Route>
-                            <Route exact path="/profile">
-                                <Profile/>
-                            </Route>
-                            <Route exact path="/checkout">
-                                <Checkout/>
-                            </Route>
-                        </Switch>
-                    </div>
-                </Router>
+            <Menu />
+            <div className="content">
+                <Switch>
+                    <Route exact path={["/", "/dishselection"]}>
+                        <DishSelection/>
+                    </Route>
+                    <Route exact path="/filter">
+                        <DishFilter/>
+                    </Route>
+                    <Route exact path="/profile">
+                        <Profile/>
+                    </Route>
+                    <Route exact path="/checkout">
+                        <Checkout/>
+                    </Route>
+                </Switch>
+            </div>
         </div>
     }
 }
 
 interface Props{}
 interface State{}
+
+interface Style {
+}

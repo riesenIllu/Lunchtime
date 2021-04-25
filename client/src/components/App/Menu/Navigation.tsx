@@ -1,7 +1,12 @@
 import React from "react";
 import { Link as DomLink } from "react-router-dom";
+import { Base } from "../../Base";
 
-export class Navigation extends React.Component<Props,State>{
+export class Navigation extends Base<Props,State>{
+    protected get style(): {} {
+        return {};
+    }
+
 
     public render(): React.ReactNode{
         return <div className="navigation">

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {Drawer, Button, AppBar, IconButton} from "@material-ui/core";
+import {Drawer, Button, AppBar, IconButton, Badge} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import CloseIcon from '@material-ui/icons/Close';
@@ -8,15 +8,23 @@ import { ProfileLink } from "./Menu/ProfileLink";
 import { Navigation } from "./Menu/Navigation";
 import { ThemeSelector } from "./Menu/ThemeSelector";
 import { Logo } from "../Logo";
+import { Base } from "../Base";
+import { Application } from "../../Application";
 
 
-export class Menu extends React.Component<Props, State>{
+export class Menu extends Base<Props, State>{
+    protected get style(): {} {
+        return {};
+    }
 
     constructor(props: Props){
         super(props);
         this.state = {
             open: false
         }
+        Application.stateStore.subscribe("shoppingCart", (data) => {
+            this.forceUpdate();
+        })
     }
 
     private toggleDrawerState(): void{
@@ -34,7 +42,9 @@ export class Menu extends React.Component<Props, State>{
                 <Logo></Logo>
                 <Link to="/checkout">
                     <IconButton className="menu-button" edge="start" color="inherit" aria-label="menu">
-                        <ShoppingCartIcon />
+                        <Badge color="error" badgeContent={Application.stateStore.getState("shoppingCart").length}>
+                            <ShoppingCartIcon />
+                        </Badge>
                     </IconButton>
                 </Link>
             </AppBar>

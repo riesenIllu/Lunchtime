@@ -1,19 +1,16 @@
-import { Theme } from "./application/actions/Theme";
-import { State } from "./application/State";
-import { StateStore } from "./application/StateStore";
-import {render} from "./components/index";
 import reportWebVitals from './vendor/reportWebVitals';
+import { Application } from "./Application";
 
 
-render();
-var stateStore = new StateStore<State>({
-    theme: "light",
-    nuppi: 3
+var application = new Application({
+    initialState: {
+        locale: "de",
+        loggedIn: false,
+        theme: "light",
+        shoppingCart: ["smthng"]
+    },
+    renderContainer: document.getElementById("root") as Element
 });
-stateStore.subscribe("theme", (data) => {
-    console.log(data);
-});
-stateStore.executeAction(Theme, "schnurpel");
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

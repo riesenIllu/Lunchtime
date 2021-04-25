@@ -1,7 +1,11 @@
 import React from "react";
 import { Avatar, Typography } from "@material-ui/core";
+import { Base } from "../../Base";
 
-export class ProfileLink extends React.Component<Props, State>{
+export class ProfileLink extends Base<Props, State>{
+    protected get style(): {} {
+        return {};
+    }
 
     public render(): React.ReactNode{
         return <div className="profile-link">

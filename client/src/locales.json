@@ -1,0 +1,38 @@
+{
+    "de": {
+        "email_input_title": "E-Mail",
+        "email_input_placeholder": "Bitte gib deine Email ein ",
+        "password_input_title": "Passwort",
+        "password_input_placeholder": "Bitte gib dein Passwort ein",
+
+        "login_title": "Anmeldung",
+        "login_button": "Anmelden",
+        "login_recovery_button": "Passwort vergessen",
+        "recovery_title": "Passwort vergessen",
+        "to_login_button": "Zurück zur Anmeldung",
+
+        "search_input_title": "Suchbegriff",
+        "search_input_placeholder": "Suchbegriff eingeben",
+        "price_slider_title": "Preis",
+        "type_checkbox_title": "Typ",
+        "ingredients_filter_title": "Zutaten"
+    },
+    "en": {
+        "email_input_title": "E-Mail",
+        "email_input_placeholder": "Please Email ",
+        "password_input_title": "Password",
+        "password_input_placeholder": "Please Password",
+
+        "login_title": "Login",
+        "login_button": "Login",
+        "login_recovery_button": "Forgot Password",
+        "recovery_title": "Password Recovery",
+        "to_login_button": "Back to Login",
+
+        "search_input_title": "Search Item",
+        "search_input_placeholder": "input seacrh item",
+        "price_slider_title": "Price",
+        "type_checkbox_title": "Type",
+        "ingredients_filter_title": "Ingredients"
+    }
+}

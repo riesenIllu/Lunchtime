@@ -1,8 +1,12 @@
 import React from "react";
 import { Card, CardMedia, CardContent, Typography, CardActions, Button } from "@material-ui/core";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { Base } from "../../Base";
 
-export class Dish extends React.Component<Props,State>{
+export class Dish extends Base<Props,State>{
+    protected get style(): {} {
+        return {};
+    }
 
     public render(): React.ReactNode{
         return <div className="dish">

@@ -1,8 +1,12 @@
 import React from "react";
+import { Base } from "../Base";
 import {DishData, Dish} from "./DishSelection/Dish";
 import image from "./Rectangle_134.png";
 
-export class DishSelection extends React.Component<Props, State>{
+export class DishSelection extends Base<Props, State>{
+    protected get style(): {} {
+        return {};
+    }
 
     constructor(props: Props){
         super(props);

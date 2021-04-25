@@ -4,9 +4,9 @@ import {Root} from "./Root";
 import {getTheme} from "../application/theme";
 import '../index.css';
 
-export function render(){
+export function render(container: Element | DocumentFragment){
     ReactDOM.render(
         <Root theme={getTheme()}/>,
-        document.getElementById('root')
+        container
       );
 }
