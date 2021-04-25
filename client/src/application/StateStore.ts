@@ -82,9 +82,9 @@ export class StateStore<TState extends {}>{
     //TODO: Lösung für unnötigen check finden
     public executeAction<TAction extends Action<TState>>(actionC: ActionCtor<TAction>, input: TAction["_input_type_"]): void{
         var newState = this.actions.get(actionC.name)?.execute(input);
-        if(newState && typeof newState === "object"){
+        if(typeof newState === "object"){
             Object.keys(newState).forEach(key => {
-                if(newState && newState[key] != undefined) // newState check damit der TS Compiler zufrieden ist -_-
+                if(newState && newState.hasOwnProperty(key)) // newState check damit der TS Compiler zufrieden ist -_-
                 this.setState(key as keyof TState, newState[key]);
             })
         }
