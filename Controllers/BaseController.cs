@@ -9,6 +9,7 @@ using MongoDB.Bson;
 
 namespace LunchTime.Controllers
 {
+    [ApiController]
     public abstract class BaseController<TCollection> : ControllerBase
     {
 
@@ -27,7 +28,7 @@ namespace LunchTime.Controllers
         [HttpGet]
         public abstract IEnumerable<TCollection> Read();
         [HttpPost]
-        public abstract void Update(ObjectId id, TCollection entry);
+        public abstract void Update(TCollection entry);
         [HttpDelete]
         public abstract void Delete(ObjectId id);
     }
