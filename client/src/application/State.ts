@@ -1,4 +1,7 @@
 export interface State{
+    loggedIn: boolean;
     theme: string;
-    nuppi: number;
+    locale: "de" | "en";
+    shoppingCart: {}[];
 }
+

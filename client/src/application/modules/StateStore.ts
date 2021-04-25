@@ -6,7 +6,7 @@ module state {
 
     export class Subscription<TStates, K extends keyof TStates> {
         
-        private static index: number;
+        private static index: number = 0;
         public readonly index: number;
         public readonly stateKey: K;
         public readonly callback: Callback<TStates, K>;
@@ -54,7 +54,7 @@ export class StateStore<TState extends {}>{
 
     private initActions(): Map<string, Action<TState>>{
         var actions = new Map();
-        StateStore.registeredActions.forEach((aC) => {
+        StateStore.registeredActions?.forEach((aC) => {
             if(!actions.has(aC.name)) actions.set(aC.name, new aC());
         });
         return actions;
@@ -67,6 +67,10 @@ export class StateStore<TState extends {}>{
                 sub.callback(stateData);
             }
         })
+    }
+
+    public getState<K extends keyof TState>(stateKey: K): TState[K]{
+        return this.state.get(stateKey);
     }
 
     public subscribe<K extends keyof TState>(stateKey: K, callback: state.Callback<TState, K>): state.Subscription<TState, K> {
