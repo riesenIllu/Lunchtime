@@ -7,6 +7,7 @@ You need to have the following installed in order to run the application:
 - dotnet 5
 - node.js
 - nuget
+- Nuget Package Manager
 
 
 ## Installation and Running the app
@@ -24,7 +25,9 @@ npm start
 cd client
 npm i
 cd ..
-
+Update-Package -reinstall
+dotnet restore
+dotnet run
 ```
 
 
