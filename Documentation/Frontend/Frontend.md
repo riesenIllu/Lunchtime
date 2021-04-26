@@ -1,11 +1,11 @@
 # Lunchtime Frontend
 
-short description, uses React for rendering html blablabla
+Component Based Frontend using React and MaterialUI with Typescript
 
 ## Application Logic
 
-Application.ts for initialization
-StateStore.ts is StateStore
+[Application](./Application.md)
+[StateStore](./StateStore.md)
 
 ## Components
 
