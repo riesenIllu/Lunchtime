@@ -29,6 +29,6 @@ cd ..
 
 
 
-## [Frontend](./Documentation/Frontend.md)
+## [Frontend](./Documentation/Frontend/Frontend.md)
 
-## [Backend](./Documentation/Backend.md)
+## [Backend](./Documentation/Backend/Backend.md)
