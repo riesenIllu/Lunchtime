@@ -10,6 +10,7 @@ import { ThemeSelector } from "./Menu/ThemeSelector";
 import { Logo } from "../Logo";
 import { Base } from "../Base";
 import { Application } from "../../Application";
+import { Login } from "../../application/actions/Login";
 
 
 export class Menu extends Base<Props, State>{
@@ -33,29 +34,41 @@ export class Menu extends Base<Props, State>{
         });
     }
 
-    public render(): React.ReactNode{
-        return <div className="menu">
-            <AppBar className="menu-bar" color="secondary">
-                <IconButton className="menu-button" edge="start" color="inherit" aria-label="menu" onClick={this.toggleDrawerState.bind(this)}>
+    private renderMenuIconButton(): React.ReactNode{
+        return <IconButton className="menu-button" edge="start" color="inherit" aria-label="menu" onClick={this.toggleDrawerState.bind(this)}>
                     {this.state.open ? <CloseIcon/> : <MenuIcon/>}
+            </IconButton>
+    }
+
+    private renderCheckoutIconButton(): React.ReactNode{
+        return <Link to="/checkout">
+                <IconButton className="menu-button" edge="start" color="inherit" aria-label="menu">
+                    <Badge color="error" badgeContent={Application.stateStore.getState("shoppingCart").length}>
+                        <ShoppingCartIcon />
+                    </Badge>
                 </IconButton>
-                <Logo></Logo>
-                <Link to="/checkout">
-                    <IconButton className="menu-button" edge="start" color="inherit" aria-label="menu">
-                        <Badge color="error" badgeContent={Application.stateStore.getState("shoppingCart").length}>
-                            <ShoppingCartIcon />
-                        </Badge>
-                    </IconButton>
-                </Link>
-            </AppBar>
-            <Drawer className="menu-drawer" anchor="left" open={this.state.open} onClose={this.toggleDrawerState.bind(this)}>
+        </Link>
+    }
+
+    private renderMenuDrawer(): React.ReactNode{
+        return <Drawer className="menu-drawer" anchor="left" open={this.state.open} onClose={this.toggleDrawerState.bind(this)}>
                 <div className="drawer-content">
                     <ProfileLink user={{name: "Max Mustermann"}} />
                     <Navigation links={[{title: "Dishselection", href: "/dishselection"}, {title: "Edit Profile", href: "/profile"}, {title: "Checkout", href: "/checkout"}]} />
                     <ThemeSelector />
-                    <Button className="logout-button">Logout</Button>
+                    <Button className="logout-button" onClick={()=>{Application.stateStore.executeAction(Login, false)}}>Logout</Button>
                 </div>
             </Drawer>
+    }
+
+    public render(): React.ReactNode{
+        return <div className="menu">
+            <AppBar className="menu-bar" color="secondary">
+                {this.renderMenuIconButton()}
+                <Logo></Logo>
+                {this.renderCheckoutIconButton()}
+            </AppBar>
+            {this.renderMenuDrawer()}
         </div>
     }
 }
