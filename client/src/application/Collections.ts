@@ -11,7 +11,7 @@ export type Ingredients = string[];
 export interface Dish{
     id: number;
     name: string;
-    price: number;
+    price: number | string; //FIXME: type sollte number sein, dummy daten sind fehlerhaft
     type: DishType,
     ingredients: Ingredients;
 }

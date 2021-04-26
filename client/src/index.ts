@@ -1,6 +1,6 @@
 import reportWebVitals from './vendor/reportWebVitals';
 import { Application } from "./Application";
-import { createDishes } from './application/dummyDataHelper';
+import dishes from "./application/dummyData/Dishes.json";
 
 
 var application = new Application({
@@ -8,7 +8,8 @@ var application = new Application({
         locale: "de",
         loggedIn: false,
         theme: "light",
-        shoppingCart: []
+        shoppingCart: [],
+        filteredDishes: dishes
     },
     renderContainer: document.getElementById("root") as Element
 });

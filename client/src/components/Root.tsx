@@ -16,15 +16,15 @@ export class Root extends Base<Props, State> {
         this.state = {
             loggedIn: Application.stateStore.getState("loggedIn")
         };
-        Application.stateStore.subscribe("loggedIn", (state) => {
+        this.subscribeToState("loggedIn", (state) => {
             this.setState({
                 loggedIn: state
             })
-        })
+        });
     }
     
-    protected get style(): {} {
-        return {};
+    public componentWillUnmount(): void{
+        
     }
 
     private renderLoginRecoverySwitch(): React.ReactNode{

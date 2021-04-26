@@ -23,9 +23,9 @@ export class Menu extends Base<Props, State>{
         this.state = {
             open: false
         }
-        Application.stateStore.subscribe("shoppingCart", (data) => {
+        this.subscribeToState("shoppingCart", (state) => {
             this.forceUpdate();
-        })
+        });
     }
 
     private toggleDrawerState(): void{
@@ -56,7 +56,7 @@ export class Menu extends Base<Props, State>{
                     <ProfileLink user={{name: "Max Mustermann"}} />
                     <Navigation links={[{title: "Dishselection", href: "/dishselection"}, {title: "Edit Profile", href: "/profile"}, {title: "Checkout", href: "/checkout"}]} />
                     <ThemeSelector />
-                    <Button className="logout-button" onClick={()=>{Application.stateStore.executeAction(Login, false)}}>Logout</Button>
+                    <Button className="logout-button" onClick={()=>{Application.stateStore.executeAction(Login, false)}} component={Link} to={"/"}>Logout</Button>
                 </div>
             </Drawer>
     }

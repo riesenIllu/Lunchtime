@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import { Base } from "./Base";
 
 export class Logo extends Base {
-    protected get style(): {} {
-        return {};
-    }
 
     public render(): React.ReactNode{
         return <div className="logo">

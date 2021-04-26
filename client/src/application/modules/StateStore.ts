@@ -1,10 +1,10 @@
 import {Action, ActionCtor} from "./Action";
 
-module state {
+export module state {
 
-    export type Callback<TStates, K extends keyof TStates> = (stateData: TStates[K]) => void;
+    export type Callback<TStates, K extends keyof TStates = keyof TStates> = (stateData: TStates[K]) => void;
 
-    export class Subscription<TStates, K extends keyof TStates> {
+    export class Subscription<TStates, K extends keyof TStates = keyof TStates> {
         
         private static index: number = 0;
         public readonly index: number;

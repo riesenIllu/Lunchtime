@@ -10,9 +10,6 @@ import { Base } from "./Base";
 //FIXME: naming
 export class App extends Base<Props, State, Style>{
     
-    protected get style(): Style {
-        return {};
-    }
 
     public render(): React.ReactNode{
         return <div className="app">

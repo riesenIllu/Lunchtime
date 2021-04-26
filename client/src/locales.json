@@ -17,7 +17,10 @@
         "search_input_placeholder": "Suchbegriff eingeben",
         "price_slider_title": "Preis",
         "type_checkbox_title": "Typ",
-        "ingredients_filter_title": "Zutaten"
+        "ingredients_filter_title": "Zutaten",
+
+        "order_summary": "Bestellung",
+        "total_price": "Gesamt"
     },
     "en": {
         "email_input_title": "E-Mail",
@@ -37,6 +40,9 @@
         "search_input_placeholder": "Input Search Item",
         "price_slider_title": "Price",
         "type_checkbox_title": "Type",
-        "ingredients_filter_title": "Ingredients"
+        "ingredients_filter_title": "Ingredients",
+
+        "order_summary": "Order Summary",
+        "total_price": "Total"
     }
 }

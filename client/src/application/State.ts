@@ -5,5 +5,6 @@ export interface State{
     theme: string;
     locale: "de" | "en";
     shoppingCart: Dish[];
+    filteredDishes: Dish[];
 }
 
