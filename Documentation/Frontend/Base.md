@@ -1,6 +1,7 @@
-# ComponentName
+# Base extends React Component
 
-short description
+Base Component for all React Components in this Project.
+
 
 ## Props
 
