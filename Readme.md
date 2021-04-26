@@ -6,17 +6,29 @@
 You need to have the following installed in order to run the application:
 - dotnet 5
 - node.js
-- ...
+- nuget
 
 
 ## Installation and Running the app
 
-just run the install_run.shell in the folder
+### Just the Frontend
+after checking out the repository run in the root folder
+
+```
+cd client
+npm i 
+npm start
+```
+### With Backend (Coming soon)
+```
+cd client
+npm i
+cd ..
+
+```
 
 
-## Frontend
-You can find a detailed Documentation on the Frontend here
 
-## Backend
+## [Frontend](./Documentation/Frontend.md)
 
-You can find a detailed Documentation on the Frontend here
+## [Backend](./Documentation/Backend.md)
