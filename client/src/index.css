@@ -1,5 +1,103 @@
+.lt-component-root .dish-selection .filter-link {
+  position: absolute;
+  bottom: 1.5em;
+  right: 1.5em;
+  z-index: 200;
+}
+
+.lt-component-root .dish-selection .filter-link .filter-background {
+  background-color: #d50057;
+}
+
+.lt-component-root .dish-selection .dish .dish-card {
+  position: relative;
+}
+
+.lt-component-root .dish-selection .dish .dish-card .dish-image {
+  height: 0;
+  padding-top: 45.2%;
+}
+
+.lt-component-root .dish-selection .dish .dish-card .dish-price {
+  position: absolute;
+  right: 0;
+  bottom: 4em;
+  color: white;
+}
+
+.lt-component-root .dish-selection .dish .dish-card .dish-content {
+  display: flex;
+  border: 1px solid;
+  margin-bottom: 1em;
+  padding: 0;
+}
+
+.lt-component-root .dish-selection .dish .dish-card .dish-content .dish-name {
+  width: 75%;
+  padding: 1ch;
+}
+
+.lt-component-root .dish-selection .dish .dish-card .dish-content .dish-order-button {
+  width: 25%;
+  background-color: #d50057;
+  padding: 5px;
+}
+
+.lt-component-root .login {
+  margin-top: 50%;
+}
+
+.lt-component-root .login button {
+  margin: 0.5em 0;
+}
+
+.lt-component-root .login .headline {
+  display: block;
+  margin: auto;
+  width: fit-content;
+}
+
+.lt-component-root .login .form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lt-component-root .logo {
+  display: flex;
+  margin: auto;
+  width: fit-content;
+}
+
+.lt-component-root .logo .logo-img {
+  display: inline;
+  margin: 0.5em;
+}
+
+.menu-drawer .drawer-content {
+  padding: 4.5em 1em;
+}
+
+.menu-drawer .drawer-content .profile-link {
+  display: flex;
+  margin: 0.5em;
+}
+
+.lt-component-root .menu .menu-bar {
+  flex-direction: row;
+  z-index: 1400;
+}
+
+.lt-component-root .menu .menu-bar .menu-button {
+  margin: 0.3em;
+}
+
+.lt-component-root .menu .menu-bar .logo {
+  padding-top: 0.5em;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: museo-sans, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -9,73 +107,24 @@ body a {
   text-decoration: unset;
 }
 
-body .menu-drawer .drawer-content {
-  padding: 4.5em 1em;
+body .lt-component-root .background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
 }
 
-body .menu-drawer .drawer-content .profile-link {
-  display: flex;
-  margin: 0.5em;
+body .lt-component-root.dark .background {
+  background-color: #424242;
 }
 
-body .lt-component-root .dish-selection .dish .dish-image {
-  height: 0;
-  padding-top: 45.2%;
-}
-
-body .lt-component-root .dish-selection .dish .dish-content {
-  display: flex;
-}
-
-body .lt-component-root .dish-selection .dish .dish-content .dish-name {
-  width: 75%;
+body .lt-component-root.light {
+  background-color: white;
 }
 
 body .lt-component-root .content {
   margin-top: 5em;
-}
-
-body .lt-component-root .menu .menu-bar {
-  flex-direction: row;
-  z-index: 1400;
-}
-
-body .lt-component-root .menu .menu-bar .menu-button {
-  margin: 0.3em;
-}
-
-body .lt-component-root .menu .menu-bar .logo {
-  padding-top: 0.5em;
-}
-
-body .lt-component-root .logo {
-  display: flex;
-  margin: auto;
-  width: fit-content;
-}
-
-body .lt-component-root .logo .logo-img {
-  display: inline;
-  margin: 0.5em;
-}
-
-body .lt-component-root .login {
-  margin-top: 50%;
-}
-
-body .lt-component-root .login button {
-  margin: 0.5em 0;
-}
-
-body .lt-component-root .login .headline {
-  display: block;
-  margin: auto;
-  width: fit-content;
-}
-
-body .lt-component-root .login .form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 /*# sourceMappingURL=index.css.map */

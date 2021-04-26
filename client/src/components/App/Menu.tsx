@@ -25,7 +25,7 @@ export class Menu extends Base<Props, State>{
         }
         this.subscribeToState("shoppingCart", (state) => {
             this.forceUpdate();
-        });
+        })
     }
 
     private toggleDrawerState(): void{
@@ -51,7 +51,7 @@ export class Menu extends Base<Props, State>{
     }
 
     private renderMenuDrawer(): React.ReactNode{
-        return <Drawer className="menu-drawer" anchor="left" open={this.state.open} onClose={this.toggleDrawerState.bind(this)}>
+        return <Drawer className="menu-drawer" color="secondary" anchor="left" open={this.state.open} onClose={this.toggleDrawerState.bind(this)}>
                 <div className="drawer-content">
                     <ProfileLink user={{name: "Max Mustermann"}} />
                     <Navigation links={[{title: "Dishselection", href: "/dishselection"}, {title: "Edit Profile", href: "/profile"}, {title: "Checkout", href: "/checkout"}]} />
@@ -63,7 +63,7 @@ export class Menu extends Base<Props, State>{
 
     public render(): React.ReactNode{
         return <div className="menu">
-            <AppBar className="menu-bar" color="secondary">
+            <AppBar className="menu-bar" color="default">
                 {this.renderMenuIconButton()}
                 <Logo></Logo>
                 {this.renderCheckoutIconButton()}

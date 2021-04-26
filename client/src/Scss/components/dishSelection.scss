@@ -1,16 +1,44 @@
 .lt-component-root{
     .dish-selection{
+      .filter-link{
+        position: absolute;
+        bottom: 1.5em;
+        right: 1.5em;
+        z-index: 200;
+        .filter-background{
+          background-color: #d50057;
+        }
+      }
         .dish{
-          .dish-image{
-            height: 0;
-            padding-top: 45.2%;
-          }
-          .dish-content{
-            display: flex;
-            .dish-name{
-              width: 75%;
+          .dish-card{
+            position: relative;
+            .dish-image{
+              height: 0;
+              padding-top: 45.2%;
+            }
+            .dish-price{
+              position: absolute;
+              right: 0;
+              bottom: 4em;
+              color: white;
+            }
+            .dish-content{
+              display: flex;
+              border: 1px solid;
+              margin-bottom: 1em;
+              padding: 0;
+              .dish-name{
+                width: 75%;
+                padding: 1ch;
+              }
+              .dish-order-button{
+                width: 25%;
+                background-color: #d50057;
+                padding: 5px;
+              }
             }
           }
+          
         }
     }
 }

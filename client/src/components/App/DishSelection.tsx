@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton } from "@material-ui/core";
+import { Avatar, IconButton } from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import { Link } from "react-router-dom";
 import { Base } from "../Base";
@@ -24,9 +24,11 @@ export class DishSelection extends Base<Props, State>{
     public render(): React.ReactNode{
         return <div className="dish-selection">
             <Link to="/DishFilter" className="filter-link">
-                <IconButton>
-                    <SearchIcon />
-                </IconButton>
+                <Avatar className="filter-background" color="red">
+                    <IconButton>
+                        <SearchIcon />
+                    </IconButton>
+                </Avatar>
             </Link>
             {this.state.dishes.map(dish => {
                 return <Dish dishData={dish}></Dish>

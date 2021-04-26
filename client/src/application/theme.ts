@@ -1,32 +1,17 @@
 import {createMuiTheme, Theme} from "@material-ui/core/styles";
 
-const baseTheme = {
-    palette: {
-        primary: {
-            main: "#d50057"
-        }
-    }
-}
 
-const themes : {[key: string]: {}} = {
-    light: {
+export function getTheme(themeKey: "light" | "dark" = "light"): Theme{
+    var theme = {
         palette: {
+            primary: {
+                main: "#d50057"
+            },
             secondary: {
                 main: "#ffffff"
-            }
+            },
+            type: themeKey
         }
-    },
-    dark: {
-        palette: {
-            secondary: {
-                main: "#000000"
-            }
-        }
-        
     }
-}
-
-export function getTheme(themeKey = "light"): Theme{
-    var combinedTheme = Object.assign(baseTheme, themes[themeKey]);
-    return createMuiTheme(combinedTheme);
+    return createMuiTheme(theme);
 }

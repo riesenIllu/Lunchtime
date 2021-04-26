@@ -5,7 +5,7 @@ import { StateStore } from "../modules/StateStore";
 
 export class Theme extends Action<State, string>{
 
-    public execute(input: string): Partial<State> {
+    public execute(input: "light" | "dark"): Partial<State> {
         return {theme: input};
     }
     

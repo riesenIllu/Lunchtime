@@ -6,6 +6,7 @@ import { Application } from "../Application";
 import { Base } from "./Base";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { PassRecovery } from "./PassRecovery";
+import { getTheme } from "../application/theme";
 
 
 export class Root extends Base<Props, State> {
@@ -14,13 +15,19 @@ export class Root extends Base<Props, State> {
     constructor(props: Props){
         super(props);
         this.state = {
-            loggedIn: Application.stateStore.getState("loggedIn")
+            loggedIn: Application.stateStore.getState("loggedIn"),
+            theme: getTheme(Application.stateStore.getState("theme"))
         };
         this.subscribeToState("loggedIn", (state) => {
             this.setState({
                 loggedIn: state
             })
         });
+        this.subscribeToState("theme", (state) => {
+            this.setState({
+                theme: getTheme(state)
+            })
+        })
     }
     
     public componentWillUnmount(): void{
@@ -41,9 +48,11 @@ export class Root extends Base<Props, State> {
     }
 
     public render(): React.ReactNode{
-        return <div className="lt-component-root">
+        console.log(this.state.theme);
+        return <div className={"lt-component-root " + Application.stateStore.getState("theme")}>
+            <div className="background"></div>
             <Router>
-                <ThemeProvider theme={this.props.theme} >
+                <ThemeProvider theme={this.state.theme} >
                     {this.state.loggedIn ? <App /> : this.renderLoginRecoverySwitch()}
                 </ThemeProvider>
             </Router>
@@ -53,9 +62,9 @@ export class Root extends Base<Props, State> {
 }
 
 export interface Props {
-    theme: Theme;
 }
 
 export interface State {
     loggedIn: boolean;
+    theme: Theme;
 }

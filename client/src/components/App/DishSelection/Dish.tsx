@@ -15,16 +15,14 @@ export class Dish extends Base<Props,State>{
 
     public render(): React.ReactNode{
         return <div className="dish">
-            <Card>
+            <Card className="dish-card">
                 <CardMedia className="dish-image" image={image} />
-                <Typography className="dish-price" variant="subtitle1">{this.props.dishData.price}</Typography>
+                <Typography className="dish-price" variant="subtitle1">{this.props.dishData.price}€</Typography>
                 <CardContent className="dish-content">
                     <Typography className="dish-name" variant="body2" color="textSecondary" component="p">
                         {this.props.dishData.name}
                     </Typography>
-                    <Button className="dish-order-button" onClick={this.addToShoppingCart.bind(this)}>
-                        <ShoppingCartIcon />
-                    </Button>
+                    <ShoppingCartIcon className="dish-order-button" onClick={this.addToShoppingCart.bind(this)} />
                 </CardContent>
             </Card>
         </div>
