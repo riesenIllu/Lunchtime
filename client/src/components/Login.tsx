@@ -1,4 +1,3 @@
-import React from "react";
 import {Container, Typography, TextField, Button} from "@material-ui/core";
 import {Logo} from "./Logo";
 import { Base } from "./Base";
@@ -7,9 +6,27 @@ import {Login as LoginAction} from "../application/actions/Login"
 import { Link } from "react-router-dom";
 
 export class Login extends Base<Props, State>{
-    protected get style(): {} {
-        return {};
-    }
+
+    // protected get style(): Style{
+    //     return {
+    //         login: {
+    //             marginTop: "50%"
+    //         },
+    //         headline:{
+    //             display: "block",
+    //             margin: "auto",
+    //             width: "fit-content"
+    //         },
+    //         button: {
+    //             margin: "0.5em 0"
+    //         },
+    //         formContainer: {
+    //             display: "flex",
+    //             justifyContent: "center",
+    //             alignItems: "center"
+    //         }
+    //     };
+    // }
 
     public render(): React.ReactNode{
         return <div className="login">
@@ -61,7 +78,6 @@ export class Login extends Base<Props, State>{
 }
 
 interface Props {
-
 }
 
 interface State{

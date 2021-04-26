@@ -1,0 +1,23 @@
+.menu-drawer{
+    .drawer-content{
+      padding: 4.5em 1em;
+      .profile-link{
+        display: flex;
+        margin: 0.5em;
+      }
+    }
+}
+.lt-component-root{
+    .menu{
+        .menu-bar{
+          flex-direction: row;
+          z-index: 1400;
+          .menu-button{
+            margin: 0.3em;
+          }
+          .logo{
+            padding-top: 0.5em;
+          }
+        }
+      }
+}

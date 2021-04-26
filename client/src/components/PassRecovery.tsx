@@ -4,6 +4,7 @@ import {Logo} from "./Logo";
 import { Base } from "./Base";
 import { Link } from "react-router-dom";
 
+
 export class PassRecovery extends Base<Props, State>{
     protected get style(): {} {
         return {};

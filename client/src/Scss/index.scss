@@ -9,70 +9,13 @@ body {
       text-decoration: unset;
     }
 
-    .menu-drawer{
-      .drawer-content{
-        padding: 4.5em 1em;
-        .profile-link{
-          display: flex;
-          margin: 0.5em;
-        }
-      }
-    }
-
     .lt-component-root{
-      .dish-selection{
-        .dish{
-          .dish-image{
-            height: 0;
-            padding-top: 45.2%;
-          }
-          .dish-content{
-            display: flex;
-            .dish-name{
-              width: 75%;
-            }
-          }
-        }
-      }
+      
       .content{
         margin-top: 5em;
       }
-      .menu{
-        .menu-bar{
-          flex-direction: row;
-          z-index: 1400;
-          .menu-button{
-            margin: 0.3em;
-          }
-          .logo{
-            padding-top: 0.5em;
-          }
-        }
-      }
-      .logo{
-        display: flex;
-        margin: auto;
-        width: fit-content;
-        .logo-img{
-          display: inline;
-          margin: 0.5em;
-        }
-      }
-      .login{
-        margin-top: 50%;
-        button{
-          margin: 0.5em 0;
-        }
-        .headline{
-          display: block;
-          margin: auto;
-          width: fit-content;
-        }
-        .form-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      }
+      
+      
+      
     }
 }

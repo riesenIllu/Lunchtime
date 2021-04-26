@@ -1,13 +1,13 @@
 import React from "react";
-import { Styles, DefaultTheme, ClassNameMap, makeStyles } from "@material-ui/styles";
 import {Application, LocaleKeys, LocaleLanguageKeys} from "../Application";
+import { withStyles } from "@material-ui/core";
 
 
 
-export abstract class Base<Props extends {} = {}, State extends {} = {}, Style extends Styles<DefaultTheme,Props,keyof Style & string> = {}> 
+export abstract class Base<Props extends {} = {}, State extends {} = {}, Style extends {} = {}> 
     extends React.Component<Props, State>{
 
-    protected useStyle?: (props: Props) => ClassNameMap<keyof Style & string>;
+    // protected classes?: ClassNameMap<keyof Style & string>;
 
     private localeLanguage: LocaleLanguageKeys;
 
@@ -19,13 +19,13 @@ export abstract class Base<Props extends {} = {}, State extends {} = {}, Style e
         });
     }
 
-    protected abstract get style(): Style;
+    // protected abstract get style(): Style;
 
-    public componentDidMount(): void {
-        if(this.style){
-            this.useStyle = makeStyles(this.style);
-        }
-    }
+    // public componentDidMount(): void {
+    //     if(this.style){
+    //         this.classes = withStyles(this.style);
+    //     }
+    // }
 
 
     protected locale(localeKeyOrString: LocaleKeys): string{

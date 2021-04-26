@@ -1,0 +1,11 @@
+.lt-component-root{
+    .logo{
+        display: flex;
+        margin: auto;
+        width: fit-content;
+        .logo-img{
+            display: inline;
+            margin: 0.5em;
+        }
+    }
+}
