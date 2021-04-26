@@ -2,10 +2,10 @@ import {Action} from "../modules/Action";
 import {State} from "../State";
 import { StateStore } from "../modules/StateStore";
 
-export class Login extends Action<State, null>{
+export class Login extends Action<State, boolean>{
 
-    public execute(): Partial<State> {
-        return {loggedIn: true};
+    public execute(input: boolean): Partial<State> {
+        return {loggedIn: input};
     }
     
 }
