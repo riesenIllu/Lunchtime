@@ -23,7 +23,7 @@ export class DishSelection extends Base<Props, State>{
 
     public render(): React.ReactNode{
         return <div className="dish-selection">
-            <Link to="/DishFilter" className="filter-link">
+            <Link to="/filter" className="filter-link">
                 <Avatar className="filter-background" color="red">
                     <IconButton>
                         <SearchIcon />
