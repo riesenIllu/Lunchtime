@@ -4,7 +4,7 @@ Component Based Frontend using React and MaterialUI with Typescript
 
 ## Application Logic
 
-[Application](./Application.md)
+[Application](./Application.md)\
 [StateStore](./StateStore.md)
 
 ## Components
